@@ -28,7 +28,7 @@ const variantGhost = defineStyle((props) => {
 
   if (c === "gray") {
     return {
-      color: mode(`inherit`, `whiteAlpha.900`)(props),
+      color: mode(`gray.600`, `whiteAlpha.900`)(props),
       _hover: {
         bg: mode(`gray.100`, `whiteAlpha.200`)(props),
       },
@@ -52,11 +52,9 @@ const variantGhost = defineStyle((props) => {
 })
 
 const variantOutline = defineStyle((props) => {
-  const { colorScheme: c } = props
-  const borderColor = mode(`gray.200`, `whiteAlpha.300`)(props)
   return {
     border: "1px solid",
-    borderColor: c === "gray" ? borderColor : "currentColor",
+    borderColor: "currentColor",
     ".chakra-button__group[data-attached][data-orientation=horizontal] > &:not(:last-of-type)":
       { marginEnd: "-1px" },
     ".chakra-button__group[data-attached][data-orientation=vertical] > &:not(:last-of-type)":
