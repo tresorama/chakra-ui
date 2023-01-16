@@ -74,13 +74,13 @@ type AccessibleColor = {
 const accessibleColorMap: { [key: string]: AccessibleColor } = {
   yellow: {
     bg: "yellow.400",
-    color: "black",
+    color: "gray.700",
     hoverBg: "yellow.500",
     activeBg: "yellow.600",
   },
   cyan: {
     bg: "cyan.400",
-    color: "black",
+    color: "gray.700",
     hoverBg: "cyan.500",
     activeBg: "cyan.600",
   },
@@ -90,17 +90,18 @@ const variantSolid = defineStyle((props) => {
   const { colorScheme: c } = props
 
   if (c === "gray") {
-    const bg = mode(`gray.100`, `whiteAlpha.200`)(props)
+    const bg = mode(`gray.200`, `gray.600`)(props)
 
     return {
+      color: mode(`gray.800`, `white`)(props),
       bg,
       _hover: {
-        bg: mode(`gray.200`, `whiteAlpha.300`)(props),
+        bg: mode(`gray.300`, `gray.500`)(props),
         _disabled: {
           bg,
         },
       },
-      _active: { bg: mode(`gray.300`, `whiteAlpha.400`)(props) },
+      _active: { bg: mode(`gray.400`, `gray.400`)(props) },
     }
   }
 
