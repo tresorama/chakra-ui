@@ -5,7 +5,7 @@ import {
   PhoneIcon,
   SearchIcon,
 } from "@chakra-ui/icons"
-import { Container, HStack, Stack } from "@chakra-ui/layout"
+import { Container, HStack, Stack, Text } from "@chakra-ui/layout"
 import * as React from "react"
 import { FaFacebook, FaTwitter } from "react-icons/fa"
 import { MdBuild, MdCall } from "react-icons/md"
@@ -53,6 +53,7 @@ export const outlines: StoryFn<StoryProps> = (props) => (
     <Button {...props} variant="outline" colorScheme="cyan" />
     <Button {...props} variant="outline" colorScheme="orange" />
     <Button {...props} variant="outline" colorScheme="yellow" />
+    <Button {...props} variant="outline" colorScheme="gray" />
   </>
 )
 outlines.argTypes = {
@@ -60,6 +61,35 @@ outlines.argTypes = {
   children: { type: "string" },
 }
 outlines.args = {
+  children: "Button",
+}
+
+export const colorScheme: StoryFn<StoryProps> = (props) => (
+  <>
+    {["outline", "solid", "ghost", "link"].map((variant) => (
+      <>
+        <Text mt="5" display="block" w="full">
+          {variant}
+        </Text>
+        <Button {...props} variant={variant} colorScheme="red" />
+        <Button {...props} variant={variant} colorScheme="green" />
+        <Button {...props} variant={variant} colorScheme="blue" />
+        <Button {...props} variant={variant} colorScheme="teal" />
+        <Button {...props} variant={variant} colorScheme="pink" />
+        <Button {...props} variant={variant} colorScheme="purple" />
+        <Button {...props} variant={variant} colorScheme="cyan" />
+        <Button {...props} variant={variant} colorScheme="orange" />
+        <Button {...props} variant={variant} colorScheme="yellow" />
+        <Button {...props} variant={variant} colorScheme="gray" />
+      </>
+    ))}
+  </>
+)
+colorScheme.argTypes = {
+  ...pick(getThemingArgTypes(theme, "Button") ?? {}, ["size"]),
+  children: { type: "string" },
+}
+colorScheme.args = {
   children: "Button",
 }
 
