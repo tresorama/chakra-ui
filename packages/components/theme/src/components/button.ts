@@ -106,10 +106,10 @@ const variantSolid = defineStyle((props) => {
   }
 
   const {
-    bg = `${c}.500`,
+    bg = `${c}.400`,
     color = "white",
-    hoverBg = `${c}.600`,
-    activeBg = `${c}.700`,
+    hoverBg = `${c}.500`,
+    activeBg = `${c}.600`,
   } = accessibleColorMap[c] ?? {}
 
   const background = mode(bg, `${c}.200`)(props)
